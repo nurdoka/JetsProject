@@ -5,6 +5,7 @@ public abstract class Helicopters {
 	private double speed;
 	private int range;
 	private long price;
+	private String pilot;
 	
 	public Helicopters(String model, double speed, int range, long price){
 		this.model = model;
@@ -31,6 +32,14 @@ public abstract class Helicopters {
 		this.speed = speed;
 	}
 
+	public String getPilot() {
+		return pilot;
+	}
+
+	public void setPilot(String pilot) {
+		this.pilot = pilot;
+	}
+
 	public int getRange() {
 		return range;
 	}
@@ -49,7 +58,8 @@ public abstract class Helicopters {
 
 	@Override
 	public String toString() {
-		return "Helicopters [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + "]";
+		return "Helicopters [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + ", pilot="
+				+ pilot + "]";
 	}
 	
 	

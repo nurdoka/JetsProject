@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class AirField {
 
@@ -40,11 +41,11 @@ public class AirField {
 		}
 
 	}
-	
+
 	public void removeHelicopter(int choice) {
 		fleet.remove(choice);
 	}
-	
+
 	public void dogFight() {
 		for (Helicopters helicopters : fleet) {
 			if (helicopters instanceof Attack) {
@@ -90,9 +91,18 @@ public class AirField {
 	}
 
 	public void flyAllHelicopters() {
-		for (Helicopters helicopters : fleet) {
-			helicopters.fly();
-		}
+		displayAllFleet();
+		System.out.println(fleet.size()+ 1 + " All.");
+		System.out.println("Enter which helicopter you want to fly: ");
+		Scanner sc = new Scanner(System.in);
+		int choice = sc.nextInt();
+		if (choice == fleet.size()+1)
+			for (int i = 0; i < fleet.size(); i++) {
+				fleet.get(i).fly();
+			}
+		else
+			fleet.get(choice-1).fly();
+
 	}
 
 	public void addHelicopter(String type, String model, double speed, int range, long price) {
@@ -114,7 +124,7 @@ public class AirField {
 
 	public void displayAllFleet() {
 		for (int i = 0; i < fleet.size(); i++) {
-			System.out.println(i+1 + " " + fleet.get(i));
+			System.out.println(i + 1 + " " + fleet.get(i));
 		}
 	}
 }
